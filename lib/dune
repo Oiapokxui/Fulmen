@@ -1,0 +1,3 @@
+(library
+ (name fulmen)
+ (libraries base stdio))
