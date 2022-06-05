@@ -1,7 +1,7 @@
 open Base
 open Stdio
 
-let output_ppm (width:int) (height:int) =
+let ppm_file (width:int) (height:int) =
   let _ = printf "P3\n%d %d\n 255\n" width height in
   (Sequence.cartesian_product
      (Sequence.range ~stride: (-1)
@@ -19,5 +19,3 @@ let output_ppm (width:int) (height:int) =
          and ig = Float.to_int(255.999 *. b)
          and ib = Float.to_int(255.999 *. g) in
          printf "%d %d %d\n" ir ib ig)
-
-let _ = output_ppm 200 100
