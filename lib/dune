@@ -1,4 +1,4 @@
 (library
  (wrapped false)
  (name fulmen_lib)
- (libraries base stdio))
+ (libraries base stdio core))

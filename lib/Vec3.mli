@@ -1,17 +1,16 @@
-module type Vec3_type = sig
+(* type *)
+type vector 
 
-    (* type *)
-    type vector 
-    (* infix operators *)
-    (* val ( + ) : vector -> vector -> vector
-    val ( * ) : vector -> float -> vector
-    val ( / ) : vector -> float -> vector *)
+(* constructor *)
+val from : float -> float -> float -> vector
 
-    (* values *)
-    val zero : vector
-    val getX : vector -> float
-    val getY : vector -> float
-    val getZ : vector -> float
-    val length : vector -> float
+(* infix operators *)
+val ( + ) : vector -> vector -> vector
+val ( * ) : vector -> float -> vector
+val ( / ) : vector -> float -> vector
+val ( @ ) : vector -> vector -> float (* dot product *)
 
-end
+(* values *)
+val zero : vector
+val length : vector -> float
+val unit : vector -> vector
