@@ -15,3 +15,14 @@ module type Vec3_type = sig
     val length : vector -> float
 
 end
+
+module Vec3 : Vec3_type = struct 
+    type vector = (float * float * float)
+    let zero = (0.0, 0.0, 0.0)
+
+    let getX ( (x, _, _) : vector) = x
+    let getY ( (_, y, _) : vector) = y
+    let getZ ( (_, _, z) : vector) = z
+
+    let length vec = 0.0
+  end 
