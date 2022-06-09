@@ -44,3 +44,9 @@ let ( @ ) (a:vector) (b:vector) =
             x 
             ~init:0.0 
             ~f: Core.Float.(+) 
+
+let ( ** ) vec_a vec_b  = {
+    x = Core.Float.( * ) vec_a.y vec_b.z |> Core.Float.(+) (Core.Float.( * ) vec_a.z vec_b.y) ;
+    y = Core.Float.( * ) vec_a.x vec_b.z |> Core.Float.(+) (Core.Float.( * ) vec_a.z vec_b.x) ;
+    z = Core.Float.( * ) vec_a.x vec_b.y |> Core.Float.(+) (Core.Float.( * ) vec_a.y vec_b.x) 
+}

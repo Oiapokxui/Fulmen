@@ -9,6 +9,7 @@ val ( + ) : vector -> vector -> vector
 val ( * ) : vector -> float -> vector
 val ( / ) : vector -> float -> vector
 val ( @ ) : vector -> vector -> float (* dot product *)
+val ( ** ) : vector -> vector -> vector (* cross product *)
 
 (* values *)
 val zero : vector
