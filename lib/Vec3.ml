@@ -35,7 +35,7 @@ let unit vec = vec / (length vec)
 
 let to_list (vec : vector) : float list = [vec.x ; vec.y ; vec.z]
 
-let ( @ ) (a:vector) (b:vector) = 
+let ( *. ) (a:vector) (b:vector) = 
     Core.List.map 
         (Core.List.zip_exn (to_list a) (to_list b)) 
         ~f:(fun (a, b) -> Core.Float.( * ) a  b)
@@ -45,7 +45,7 @@ let ( @ ) (a:vector) (b:vector) =
             ~init:0.0 
             ~f: Core.Float.(+) 
 
-let ( ** ) vec_a vec_b  = {
+let ( +. ) vec_a vec_b  = {
     x = Core.Float.( * ) vec_a.y vec_b.z |> Core.Float.(+) (Core.Float.( * ) vec_a.z vec_b.y) ;
     y = Core.Float.( * ) vec_a.x vec_b.z |> Core.Float.(+) (Core.Float.( * ) vec_a.z vec_b.x) ;
     z = Core.Float.( * ) vec_a.x vec_b.y |> Core.Float.(+) (Core.Float.( * ) vec_a.y vec_b.x) 
