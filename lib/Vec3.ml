@@ -22,6 +22,8 @@ let ( / ) vec (scalar : float) = {
 
 let from x y z = { x = x ; y = y; z = z}
 
+let inverse vec = vec * -1.
+
 let zero = { x = 0.0 ; y = 0.0; z = 0.0} 
 
 let length vec = 

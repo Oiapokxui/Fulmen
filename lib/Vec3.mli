@@ -14,3 +14,4 @@ val ( @ ) : vector -> vector -> float (* dot product *)
 val zero : vector
 val length : vector -> float
 val unit : vector -> vector
+val inverse : vector -> vector
