@@ -35,13 +35,14 @@ let unit vec = vec / (length vec)
 
 let to_list (vec : vector) : float list = [vec.x ; vec.y ; vec.z]
 
-let ( *. ) (a:vector) (b:vector) = 
-    Core.List.map 
-        (Core.List.zip_exn (to_list a) (to_list b)) 
-        ~f:(fun (a, b) -> Core.Float.( * ) a  b)
-    |> fun x -> 
+let ( *. ) (vec_a:vector) (vec_b:vector) = 
+    let components_multiplied = 
+        Core.List.map 
+            (Core.List.zip_exn (to_list vec_a) (to_list vec_b)) 
+            ~f:(fun (a, b) -> Core.Float.( * ) a  b) 
+    in
         Core.List.fold_left 
-            x 
+            components_multiplied 
             ~init:0.0 
             ~f: Core.Float.(+) 
 
