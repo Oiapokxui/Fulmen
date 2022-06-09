@@ -26,7 +26,7 @@ let zero = { x = 0.0 ; y = 0.0; z = 0.0}
 
 let length vec = 
     Core.Float.(+) (vec.x ** 2.0) (vec.y ** 2.0)
-    |> add (vec.z ** 2.0)  
+    |> Core.Float.(+) (vec.z ** 2.0)  
     |> sqrt
 
 let unit vec = vec / (length vec)
