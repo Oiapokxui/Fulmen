@@ -1,5 +1,4 @@
 (executable
- (public_name fulmen)
- (name main)
- (libraries core fulmen)
+ (name fulmen)
+ (libraries core fulmen_lib)
  (preprocess (pps ppx_jane)))
