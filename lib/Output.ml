@@ -1,7 +1,9 @@
 open Base
 open Stdio
 
-let ppm_content (width:int) (height:int) (file) =
+type file_type = Caml.out_channel [@@deriving_inline sexp_of]
+
+let build_image (width:int) (height:int) (file:file_type) =
   let _ = Out_channel.fprintf file "P3\n%d %d\n 255\n" width height in
   (Sequence.cartesian_product
      (Sequence.range ~stride: (-1)
@@ -22,5 +24,5 @@ let ppm_content (width:int) (height:int) (file) =
          Out_channel.fprintf file "%d %d %d\n" ir ib ig)
 
 let ppm_file (file_name:string) (width:int) (height:int) =
-  let file = Out_channel.create file_name in
-  ppm_content width height file
+  let file = Stdio.Out_channel.create file_name in
+  build_image width height file
